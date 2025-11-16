@@ -92,7 +92,16 @@ form {
     }
   </script>
 
+<div style="height: 50px;"></div> 
+
+ <form id="courseForm" onsubmit="return addCourseHandle()">
 
 
+<label>Course Name:</label>
+ <input type="text" id="courseName" name="courseName">
+<button type="submit">Add Course</button>
+</form>
+ 
+ 
 </body>
 </html>
