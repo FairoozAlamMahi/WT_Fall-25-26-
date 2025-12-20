@@ -12,15 +12,15 @@
 
 <div id="p1">
 
-<a href="dashboard.html">
+<a href="dashboard.php">
     <img src="images/logo.png" alt="logo" id="logo">
 </a>
 
-    <a href="Catalogue.html">Catalogue</a>
-    <a href="compare.html">Compare Cars</a>
-    <a href="marketplace.html">Marketplace</a>
-    <a href="orderhistory.html">Order History</a>
-    <a href="cart.html">Cart</a>
+    <a href="catalogue.php">Catalogue</a>
+    <a href="compare.php">Compare Cars</a>
+    <a href="marketplace.php">Marketplace</a>
+    <a href="orderhistory.php">Order History</a>
+    <a href="cart.php">Cart</a>
 
 </div>
 
