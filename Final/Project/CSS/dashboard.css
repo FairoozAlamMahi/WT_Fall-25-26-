@@ -54,7 +54,7 @@ body {
 /* SEARCH BOX */
 .search-box {
     color: white;
-    margin: 140px 50px;     /* moved UP by reducing top/bottom space */
+    margin: 140px 50px;
     max-width: 450px;
     font-family: Arial;
 }
@@ -102,7 +102,7 @@ body {
 /* WHY SECTION */
 .why-section {
     color: white;
-    margin: -10px 50px;  /* moved UP */
+    margin: -10px 50px;
     font-family: Arial;
 }
 
@@ -146,7 +146,7 @@ body {
 .review-boxes {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap; /* so they go to next line on small screens */
+    flex-wrap: wrap;
 }
 
 .review {
