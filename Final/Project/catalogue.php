@@ -19,9 +19,8 @@
         <a href="#" id="sportsBtn">Sports Cars</a>
     </div>
 
-
+<!-- Family CARS SECTION -->
     <div id="family">
-
     <div class="family-box">
         <img src="images/2020-toyota-corolla-sedan.jpg">
         <h3>Toyota Corolla</h3>
@@ -85,35 +84,36 @@
     <!-- SPORTS CARS SECTION -->
     <div id="sports" style="display:none;">
 
-        <div class="sports-box">
-            <img src="images/car.png">
-            <h2>Sports Car Name</h2>
-            <p>Price: $$$$</p>
-            <p>Specs: 500HP, Manual</p>
-        </div>
-
-        <div class="sports-box">
-            <img src="images/car.png">
-            <h2>Sports Car Name</h2>
-            <p>Price: $$$$</p>
-            <p>Specs: 500HP, Manual</p>
-        </div>
-
-        <div class="sports-box">
-            <img src="images/car.png">
-            <h2>Sports Car Name</h2>
-            <p>Price: $$$$</p>
-            <p>Specs: 500HP, Manual</p>
-        </div>
-
-        <div class="sports-box">
-            <img src="images/car.png">
-            <h2>Sports Car Name</h2>
-            <p>Price: $$$$</p>
-            <p>Specs: 500HP, Manual</p>
-        </div>
-
+    <div class="sports-box">
+        <img src="images/gtr.jpg">
+        <h2>Nissan GT-R</h2>
+        <p>Price: $113,000</p>
+        <p>565 HP • 3.8L V6 • AWD</p>
     </div>
+
+    <div class="sports-box">
+        <img src="images/2018_Ford_Mustang_GT_5.0.jpg">
+        <h2>Ford Mustang GT</h2>
+        <p>Price: $55,000</p>
+        <p>450 HP • 5.0L V8 • Manual</p>
+    </div>
+
+    <div class="sports-box">
+        <img src="images/Toyota_Supra.jpg">
+        <h2>Toyota Supra</h2>
+        <p>Price: $50,000</p>
+        <p>382 HP • 3.0L Turbo • Automatic</p>
+    </div>
+
+    <div class="sports-box">
+        <img src="images/Porsche-992-Carrera-s-001.jpg">
+        <h2>Porsche 911 Carrera</h2>
+        <p>Price: $100,000</p>
+        <p>379 HP • 3.0L Twin-Turbo • RWD</p>
+    </div>
+
+</div>
+
 
 </body>
 </html>
