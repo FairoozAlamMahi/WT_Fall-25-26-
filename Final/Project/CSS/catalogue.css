@@ -7,7 +7,6 @@ body {
     color: white;
 }
 
-
 #logo {
     width: 100px;
     height: 55px;
@@ -15,3 +14,59 @@ body {
     left: 10px;
     top: 10px;
 }
+
+#selector {
+    text-align: center;
+    margin-top: 60px;
+}
+
+#selector a {
+    color: white;
+    text-decoration: none;
+}
+
+#selector a:hover {
+    color: orange;
+}
+
+
+
+#family {
+    text-align: center;
+}
+
+.family-box {
+    width: 30%;
+    background-color: #222;
+    border: 1px solid white;
+    padding: 10px;
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    vertical-align: top; 
+}
+
+.family-box img {
+    width: 200px;
+    height: 120px;
+}
+
+
+#sports {
+    text-align: center;
+}
+
+.sports-box {
+    width: 40%;
+    background-color: #222;
+    border: 1px solid white;
+    padding: 20px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.sports-box img {
+    width: 300px;
+    height: 180px;
+}
+
