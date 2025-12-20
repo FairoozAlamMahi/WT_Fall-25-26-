@@ -115,5 +115,11 @@
 </div>
 
 
+
+<div id="footer">
+    <p>© 2025 NG Auto. All rights reserved.</p>
+    <p>Contact: support@ngauto.com | +880-111-222-333</p>
+</div>
+
 </body>
 </html>

@@ -70,3 +70,14 @@ body {
     height: 180px;
 }
 
+
+
+#footer {
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+    padding: 20px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+

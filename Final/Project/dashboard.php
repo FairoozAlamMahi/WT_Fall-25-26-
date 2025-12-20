@@ -79,5 +79,19 @@
 </a>
 
 
+
+<div id="footer" style="
+       text-align: center;
+    color: white;
+    margin-top: 100px;
+    padding: 20px;
+    font-size: 14px;
+    opacity: 0.7;
+">
+    <p>© 2025 NG Auto. All rights reserved.</p>
+    <p>Contact: support@ngauto.com | +880-111-222-333</p>
+</div>
+
+
 </body>
 </html>
