@@ -9,13 +9,15 @@
 
 </head>
 <body>
+
+<h1>Car Marketplace</h1>
     
 <a href="dashboard.php">
     <img src="images/logo.png" id="logo">
 </a>
 
 
-<h2>Most recent cars for sale</h2>
+<h2>Most recent used cars for sale</h2>
 
 
 <div id="post-listing">
