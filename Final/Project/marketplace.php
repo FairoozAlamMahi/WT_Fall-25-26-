@@ -25,6 +25,68 @@
     <button>Search</button>
 </div>
 
+<h3 id="filter_title">Filter Options</h3>
+
+
+
+
+<div id="filter">
+
+    
+        <label>Brand</label>
+        <select>
+            <option>All Brands</option>
+            <option>Toyota</option>
+            <option>Honda</option>
+            <option>Nissan</option>
+            <option>BMW</option>
+            <option>Mercedes</option>
+        </select>
+    
+    
+        <label>Location</label>
+        <select>
+            <option>All Locations</option>
+            <option>Dhaka</option>
+            <option>Chattogram</option>
+            <option>Rajshahi</option>
+            <option>Khulna</option>
+            <option>Barishal</option>
+            <option>Sylhet</option>
+            <option>Rangpur</option>
+            <option>Mymensingh</option>
+        </select>
+        <br>
+        <br>
+
+       <label>Condition</label>
+
+    <input type="radio" name="condition" value="new"> New
+
+    <input type="radio" name="condition" value="used"> Used
+
+    <br>
+    <br>
+
+
+<div id="price_range">
+    <label>Price Range</label><br>
+
+    <input type="number" placeholder="Min Price">
+    <input type="number" placeholder="Max Price">
+</div>
+
+<br>
+<br>
+
+
+    
+
+</div>
+
+
+
+
 
 
 
