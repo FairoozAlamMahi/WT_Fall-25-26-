@@ -8,7 +8,14 @@
 <body>
 
 
-<!-- User icon -->
+<a href="dashboard.php">
+    <img src="images/logo.png" id="logo">
+</a>
+
+
+
+
+
 <a href="user1.html">
     <img src="images/user1.png" id="usericon">
 </a>
@@ -19,7 +26,7 @@
 
     <div class="order_card">
         <h3>Toyota Corolla</h3>
-        <p>Order ID: #1001</p>
+        <p>Order ID:#1001</p>
         <p>Date: 12 Jan 2025</p>
         <p>Price: 2,500,000</p>
         <p>Status: Completed</p>
@@ -42,6 +49,27 @@
     </div>
 
 </div>
+
+
+
+<a href="user1.html">
+    <img src="images/user1.png" id="usericon"
+         style="width:60px; height:60px; position:absolute; top:10px; right:70px; z-index:1000; border:3px solid red;">
+</a>
+
+
+<div id="footer" style="
+       text-align: center;
+    color: white;
+    margin-top: 100px;
+    padding: 20px;
+    font-size: 14px;
+    opacity: 0.7;
+">
+    <p>© 2025 NG Auto. All rights reserved.</p>
+    <p>Contact: support@ngauto.com | +880-111-222-333</p>
+</div>
+
 
 
 
