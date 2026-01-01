@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Sell your car</title>
+    <link rel="stylesheet" href="CSS/postlisting.css">
 </head>
 <body>
 
 <h1>Sell Your Car</h1>
+
+
+
+
+
 
 <?php
 $name = "";
@@ -15,13 +21,14 @@ $location = "";
 $condition = "";
 $price = "";
 $phonenumber = "";
+$description = "";
 $image = "";
 
 $error = "";
 
 if (isset($_POST["submit"])) {
 
-
+    // Car Name
     if (empty($_POST["name"])) {
         $error .= "Car name is required.<br>";
     } else {
@@ -31,28 +38,28 @@ if (isset($_POST["submit"])) {
         }
     }
 
-
+    // Brand
     if (empty($_POST["brand"])) {
         $error .= "Brand is required.<br>";
     } else {
         $brand = $_POST["brand"];
     }
 
-
+    // Location
     if (empty($_POST["location"])) {
         $error .= "Location is required.<br>";
     } else {
         $location = $_POST["location"];
     }
 
-
+    // Condition
     if (empty($_POST["condition"])) {
         $error .= "Condition is required.<br>";
     } else {
         $condition = $_POST["condition"];
     }
 
-
+    // Price
     if ($_POST["price"] === "") {
         $error .= "Price is required.<br>";
     } else if (!is_numeric($_POST["price"])) {
@@ -62,15 +69,32 @@ if (isset($_POST["submit"])) {
     }
 
 
+    // Phone number
     if ($_POST["phonenumber"] === "") {
-        $error .= "Phone number is required.<br>";
-    } else if (!is_numeric($_POST["phonenumber"])) {
+    $error .= "Phone number is required.<br>";
+    } 
+    else {
+    $phonenumber = $_POST["phonenumber"];
+
+    if (!is_numeric($phonenumber)) {
         $error .= "Phone number must be numeric.<br>";
-    } else {
-        $phonenumber = $_POST["phonenumber"];
+    }
+    else if (strlen($phonenumber) != 11) {
+        $error .= "Phone number must be 11 digits.<br>";
+    }
+    else if (substr($phonenumber, 0, 2) != "01") {
+        $error .= "Phone number must start with 01.<br>";
+    }
     }
 
+    // Description
+    if (empty($_POST["description"])) {
+        $error .= "Description is required.<br>";
+    } else {
+        $description = $_POST["description"];
+    }
 
+    // Image
     if (empty($_FILES["image"]["name"])) {
         $error .= "Image is required.<br>";
     } else {
@@ -167,10 +191,13 @@ if (isset($_POST["submit"])) {
     <br><br>
 
     <label>Price:</label><br>
-    <input type="text" name="price" value="<?php echo $price; ?>"><br><br>
+    <input type="number" name="price" value="<?php echo $price; ?>"><br><br>
 
     <label>Phone Number:</label><br>
-    <input type="text" name="phonenumber" value="<?php echo $phonenumber; ?>"><br><br>
+    <input type="number" name="phonenumber" value="<?php echo $phonenumber; ?>"><br><br>
+
+    <label>Description:</label><br>
+    <textarea name="description" rows="4" cols="40"><?php echo $description; ?></textarea><br><br>
 
     <label>Upload Image:</label><br>
     <input type="file" name="image"><br><br>
