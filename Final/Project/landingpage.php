@@ -8,8 +8,6 @@
 </head>
 <body>
     
-
-
 <a href="dashboard.php">
     <img src="images/logo.png" id="logo">
 </a>
@@ -22,7 +20,6 @@
     top: 10px;
     right: 70px;">
 </a>
-
 
 
 
@@ -47,12 +44,7 @@
         <a href="login.php" id= "login">
         <button>Login/Sign Up</button>
         </a>
-
-
 </div>
-
-
-
 
 
 
@@ -73,8 +65,6 @@
         <p>Post your own car listing with full details.</p>
     </div>
 </div>
-
-
 
 
 
