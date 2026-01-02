@@ -1,117 +1,144 @@
+<?php
+include "DB/db.php";
+
+/* Fetch all cars for dropdowns */
+$cars = [];
+$result = $conn->query("SELECT * FROM cars");
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $cars[] = $row;
+    }
+}
+
+/* Selected cars */
+$car1 = null;
+$car2 = null;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id1 = $_POST["car1"] ?? "";
+    $id2 = $_POST["car2"] ?? "";
+
+    if ($id1 && $id2) {
+        $r1 = $conn->query("SELECT * FROM cars WHERE id = $id1");
+        $r2 = $conn->query("SELECT * FROM cars WHERE id = $id2");
+
+        if ($r1 && $r1->num_rows == 1) $car1 = $r1->fetch_assoc();
+        if ($r2 && $r2->num_rows == 1) $car2 = $r2->fetch_assoc();
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compare</title>
     <link rel="stylesheet" href="CSS/compare.css">
 </head>
 <body>
 
-
-    <a href="dashboard.php">
+<a href="dashboard.php">
     <img src="images/logo.png" id="logo">
-    </a>
-
-
-   <a href="user1.html">
-    <img src="images/user1.png" id="usericon"
-         style="width: 60px;
-    height: 60px;
-    position: absolute;
-    top: 10px;
-    right: 70px;">
 </a>
 
+<a href="user1.html">
+    <img src="images/user1.png" id="usericon"
+         style="width:60px; height:60px; position:absolute; top:10px; right:70px;">
+</a>
 
+<h1>Compare Cars</h1>
+<p>Pick two cars to compare</p>
 
-     <h1>Compare Cars</h1>
-    <p>Pick two cars to compare</p>
+<form method="post" id="selectors">
 
-    <div id="selectors">
-        <select>
-            <option>Select Car 1</option>
-        </select>
+    <select name="car1">
+        <option value="">Select Car 1</option>
+        <?php foreach ($cars as $car): ?>
+            <option value="<?php echo $car['id']; ?>">
+                <?php echo $car['brand']." ".$car['model']; ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
 
-        <select>
-            <option>Select Car 2</option>
-        </select>
-        <br>
-        <br>
+    <select name="car2">
+        <option value="">Select Car 2</option>
+        <?php foreach ($cars as $car): ?>
+            <option value="<?php echo $car['id']; ?>">
+                <?php echo $car['brand']." ".$car['model']; ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
 
-        <div>
-        <input type="submit">
-        </div>
+    <br><br>
+    <input type="submit" value="Compare">
+</form>
 
-    </div>
-
-
-
-
+<?php if ($car1 && $car2): ?>
 <div id="comparison-box">
 
-    <table>
-        <tr>
-            <th>Featured cars</th>
-            <th>Nissan GT-R</th>
-            <th>Toyota Supra</th>
-        </tr>
-        <tr>
-            <td>Image</td>
-            <td><img src="images/gtr.jpg" width="250"></td>
-            <td><img src="images/Toyota_Supra.jpg" width="250"></td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Nissan GT-R</td>
-            <td>Toyota Supra</td>
-        </tr>
-        <tr>
-            <td>Color</td>
-            <td>White</td>
-            <td>Black</td>
-        </tr>
-        <tr>
-            <td>Price</td>
-            <td>$113,000</td>
-            <td>$50,000</td>
-        </tr>
-        <tr>
-            <td>Horsepower</td>
-            <td>565 HP</td>
-            <td>382 HP</td>
-        </tr>
-        <tr>
-            <td>Engine Capacity</td>
-            <td>3.8L</td>
-            <td>3.0L</td>
-        </tr>
-        <tr>
-            <td>Horse Power</td>
-            <td>150</td>
-            <td>150</td>
-        </tr>
-        <tr>
-            <td>Transmission</td>
-            <td>AWD</td>
-            <td>CVT</td>
-        </tr>
-        <tr>
-            <td>Category</td>
-            <td>Sports</td>
-            <td>Sports</td>
-        </tr>
-    </table>
+<table>
+    <tr>
+        <th>Feature</th>
+        <th><?php echo $car1['brand']." ".$car1['model']; ?></th>
+        <th><?php echo $car2['brand']." ".$car2['model']; ?></th>
+    </tr>
+
+    <tr>
+        <td>Image</td>
+        <td><img src="images/cars/<?php echo $car1['image']; ?>" width="250"></td>
+        <td><img src="images/cars/<?php echo $car2['image']; ?>" width="250"></td>
+    </tr>
+
+    <tr>
+        <td>Name</td>
+        <td><?php echo $car1['brand']." ".$car1['model']; ?></td>
+        <td><?php echo $car2['brand']." ".$car2['model']; ?></td>
+    </tr>
+
+    <tr>
+        <td>Color</td>
+        <td><?php echo $car1['color']; ?></td>
+        <td><?php echo $car2['color']; ?></td>
+    </tr>
+
+    <tr>
+        <td>Price</td>
+        <td><?php echo $car1['price']; ?></td>
+        <td><?php echo $car2['price']; ?></td>
+    </tr>
+
+    <tr>
+        <td>Horsepower</td>
+        <td><?php echo $car1['horsepower']; ?> HP</td>
+        <td><?php echo $car2['horsepower']; ?> HP</td>
+    </tr>
+
+    <tr>
+        <td>Engine Capacity</td>
+        <td><?php echo $car1['engine_capacity']; ?></td>
+        <td><?php echo $car2['engine_capacity']; ?></td>
+    </tr>
+
+    <tr>
+        <td>Transmission</td>
+        <td><?php echo $car1['transmission']; ?></td>
+        <td><?php echo $car2['transmission']; ?></td>
+    </tr>
+
+    <tr>
+        <td>Category</td>
+        <td><?php echo $car1['category']; ?></td>
+        <td><?php echo $car2['category']; ?></td>
+    </tr>
+</table>
 
 </div>
+<?php endif; ?>
 
-
-
-    <div id="footer">
+<div id="footer">
     <p>© 2025 NG Auto. All rights reserved.</p>
     <p>Contact: support@ngauto.com | +880-111-222-333</p>
 </div>
-
 
 </body>
 </html>
