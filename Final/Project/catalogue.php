@@ -69,16 +69,7 @@ if (!empty($familyCars)) {
 <div id="sports" style="display:none;">
 <?php
 if (!empty($sportsCars)) {
-    foreach ($sportsCars as $car) {
-        echo "
-        <div class='sports-box'>
-            <img src='images/cars/{$car['image']}'>
-            <h2>{$car['brand']} {$car['model']}</h2>
-            <p>Price: {$car['price']}</p>
-            <p>{$car['horsepower']} HP • {$car['engine_capacity']} • {$car['transmission']}</p>
-        </div>
-        ";
-    }
+    
 }
 ?>
 </div>
