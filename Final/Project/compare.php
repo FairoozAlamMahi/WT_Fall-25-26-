@@ -1,7 +1,7 @@
 <?php
 include "DB/db.php";
 
-/* Fetch all cars for dropdowns */
+/* Fetch the cars for both dropdown */
 $cars = [];
 $result = $conn->query("SELECT * FROM cars");
 if ($result && $result->num_rows > 0) {
@@ -10,7 +10,6 @@ if ($result && $result->num_rows > 0) {
     }
 }
 
-/* Selected cars */
 $car1 = null;
 $car2 = null;
 
