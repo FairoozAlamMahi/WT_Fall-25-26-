@@ -3,7 +3,17 @@ include "DB/db.php";
 
 $listings = [];
 
-$sql = "SELECT * FROM marketplace_listings WHERE status = 'active'";
+$search = "";
+
+if (isset($_GET["search"]) && $_GET["search"] != "") {
+    $search = $conn->real_escape_string($_GET["search"]);
+    $sql = "SELECT * FROM marketplace_listings 
+            WHERE status = 'active' 
+            AND car_name LIKE '%$search%'";
+} else {
+    $sql = "SELECT * FROM marketplace_listings WHERE status = 'active'";
+}
+
 $result = $conn->query($sql);
 
 if ($result && $result->num_rows > 0) {
@@ -38,10 +48,11 @@ if ($result && $result->num_rows > 0) {
 <h2>Most recent used cars for sale</h2>
 
 
-<div id="search_box">
-    <input type="text" placeholder="Search cars">
-    <button>Search</button>
-</div>
+<form method="get" action="" id="search_box">
+    <input type="text" name="search" placeholder="Search cars">
+    <button type="submit">Search</button>
+</form>
+
 
 <h3 id="filter_title">Filter Options</h3>
 
