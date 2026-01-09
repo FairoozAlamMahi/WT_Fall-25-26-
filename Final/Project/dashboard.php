@@ -1,3 +1,20 @@
+<?php
+include __DIR__ . "/DB/db.php";
+
+$announcement = null;
+
+$sql = "SELECT * FROM announcements 
+        WHERE expires_at > NOW() 
+        ORDER BY created_at DESC 
+        LIMIT 1";
+
+$result = $conn->query($sql);
+
+if ($result && $result->num_rows > 0) {
+    $announcement = $result->fetch_assoc();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,42 +42,34 @@
 
 <div id="main_wrapper">
 
-    <div id="left_content">
-
-        <div class="search-box">
-            <h2>Latest cars at NG Auto!</h2>
-            <p>Find the best cars available for your needs</p>
-
-            <div class="search-area">
-                <input type="text" placeholder="Search here">
-                <button>➤</button>
-            </div>
+    <?php if ($announcement): ?>
+    <div id="announcement_panel">
+        <h2><?php echo $announcement['title']; ?></h2>
+        <div class="announcement_box">
+            <?php echo nl2br($announcement['message']); ?>
         </div>
+    </div>
+    <?php endif; ?>
 
-        <div class="why-section">
-            <h2>Why Choose Us</h2>
-            <p>We provide the best service and luxury cars at affordable prices.</p>
+    <div class="search-box">
+        <h2>Latest cars at NG Auto!</h2>
+        <p>Find the best cars available for your needs</p>
 
-            <ul>
-                <li>✔ Trusted by thousands of customers</li>
-                <li>✔ Best price guaranteed</li>
-                <li>✔ Fast and safe delivery</li>
-            </ul>
+        <div class="search-area">
+            <input type="text" placeholder="Search here">
+            <button>➤</button>
         </div>
-
-        
     </div>
 
+    <div class="why-section">
+        <h2>Why Choose Us</h2>
+        <p>We provide the best service and luxury cars at affordable prices.</p>
 
-    <div id="announcement_panel">
-        <h2>Admin Announcement</h2>
-
-        <div class="announcement_box">
-            🚨 BIG SALE COMING SOON!  
-            <br><br>
-            Get up to 20% discount on selected cars.  
-            Limited time offer!
-        </div>
+        <ul>
+            <li>✔ Trusted by thousands of customers</li>
+            <li>✔ Best price guaranteed</li>
+            <li>✔ Fast and safe delivery</li>
+        </ul>
     </div>
 
 </div>
