@@ -129,7 +129,7 @@ if ($error == "") {
         $sql = "INSERT INTO marketplace_listings 
         (car_name, brand, location, cond, price, phone_number, description, image, status)
         VALUES 
-        ('$name', '$brand', '$location', '$condition', '$price', '$phone_number', '$description', '$newImageName', 'active')"; //pore pending korte hobe. activ RAKHLAM TESTING ER JNNO
+        ('$name', '$brand', '$location', '$condition', '$price', '$phone_number', '$description', '$newImageName', 'approved')"; //pore pending korte hobe. approved RAKHLAM TESTING ER JNNO
 
         if ($conn->query($sql)) {
             echo "<p style='color:green;'>Listing posted successfully!</p>";
