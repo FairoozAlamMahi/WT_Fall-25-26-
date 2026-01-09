@@ -1,8 +1,24 @@
+<?php
+include __DIR__ . "/DB/db.php";
+
+$car = null;
+
+if (isset($_GET['id'])) {
+    $id = intval($_GET['id']);
+
+    $result = $conn->query("SELECT * FROM cars WHERE id = $id");
+
+    if ($result && $result->num_rows == 1) {
+        $car = $result->fetch_assoc();
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Car Info</title>
+    <title>Car Details</title>
     <link rel="stylesheet" href="CSS/car_info.css">
 </head>
 <body>
@@ -11,38 +27,66 @@
     <img src="images/logo.png" id="logo">
 </a>
 
-<a href="user1.html">
-    <img src="images/user1.png" id="usericon"
-         style="width:60px; height:60px; position:absolute; top:10px; right:70px;">
-</a>
+<a href="catalogue.php" style="margin:20px; display:inline-block;">← Back to Catalogue</a>
 
-<h1>Car Details</h1>
+<?php if ($car): ?>
 
 <div id="car_container">
 
-    <div id="car_image_box">
-        <img src="images/cars/sample.jpg" id="car_image">
+    <div id="car_image">
+        <img src="images/cars/<?php echo $car['image']; ?>">
     </div>
 
-    <div id="car_info_box">
-        <h2>Car Name</h2>
+    <div id="car_details">
+        <h1><?php echo $car['brand'] . " " . $car['model']; ?></h1>
 
-        <p><b>Brand:</b> Brand Name</p>
-        <p><b>Model:</b> Model Name</p>
-        <p><b>Color:</b> Color</p>
-        <p><b>Price:</b> Price</p>
-        <p><b>Horsepower:</b> HP</p>
-        <p><b>Engine Capacity:</b> Engine</p>
-        <p><b>Transmission:</b> Transmission</p>
-        <p><b>Category:</b> Category</p>
+        <p class="price">Price: ৳ <?php echo $car['price']; ?></p>
 
-        <br>
+        <table>
+            <tr>
+                <td>Brand</td>
+                <td><?php echo $car['brand']; ?></td>
+            </tr>
+            <tr>
+                <td>Model</td>
+                <td><?php echo $car['model']; ?></td>
+            </tr>
+            <tr>
+                <td>Category</td>
+                <td><?php echo $car['category']; ?></td>
+            </tr>
+            <tr>
+                <td>Color</td>
+                <td><?php echo $car['color']; ?></td>
+            </tr>
+            <tr>
+                <td>Horsepower</td>
+                <td><?php echo $car['horsepower']; ?> HP</td>
+            </tr>
+            <tr>
+                <td>Engine Capacity</td>
+                <td><?php echo $car['engine_capacity']; ?></td>
+            </tr>
+            <tr>
+                <td>Transmission</td>
+                <td><?php echo $car['transmission']; ?></td>
+            </tr>
+        </table>
 
-        <button id="buy_btn">Buy Now</button>
-        <button id="compare_btn">Compare</button>
+        <div class="buttons">
+            <button>Buy Now</button>
+            <button>Compare</button>
+        </div>
     </div>
 
 </div>
+
+<?php else: ?>
+
+<h2 style="text-align:center; margin-top:100px;">Car not found.</h2>
+
+<?php endif; ?>
+
 
 <div id="footer">
     <p>© 2025 NG Auto. All rights reserved.</p>
