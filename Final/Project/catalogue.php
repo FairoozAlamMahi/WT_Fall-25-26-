@@ -1,7 +1,7 @@
 <?php
 include __DIR__ . "/DB/db.php";
 
-/* FETCH FAMILY CARS */
+
 $familyCars = [];
 $familyResult = $conn->query("SELECT * FROM cars WHERE category='Family'");
 if ($familyResult && $familyResult->num_rows > 0) {
@@ -10,7 +10,7 @@ if ($familyResult && $familyResult->num_rows > 0) {
     }
 }
 
-/* FETCH SPORTS CARS */
+
 $sportsCars = [];
 $sportsResult = $conn->query("SELECT * FROM cars WHERE category='Sports'");
 if ($sportsResult && $sportsResult->num_rows > 0) {
@@ -47,7 +47,7 @@ if ($sportsResult && $sportsResult->num_rows > 0) {
          style="width:60px; height:60px; position:absolute; top:10px; right:70px;">
 </a>
 
-<!-- FAMILY CARS -->
+
 <div id="family">
 <?php
 if (!empty($familyCars)) {
@@ -67,7 +67,7 @@ if (!empty($familyCars)) {
 ?>
 </div>
 
-<!-- SPORTS CARS -->
+
 <div id="sports" style="display:none;">
 <?php
 if (!empty($sportsCars)) {
