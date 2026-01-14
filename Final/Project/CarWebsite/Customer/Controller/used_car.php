@@ -1,5 +1,6 @@
 <?php
-include __DIR__ . "/DB/db.php";
+include "../../DB/db.php";
+
 
 $car = null;
 
@@ -19,18 +20,18 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <title>Used Car Details</title>
-    <link rel="stylesheet" href="CSS/used_car.css">
-    <script src="JS/used_car.js" defer></script>
+    <link rel="stylesheet" href="../View/css/used_car.css">
+    <script src=../View/js/used_car.js" defer></script>
 </head>
 <body>
 
 <a href="dashboard.php">
-    <img src="images/logo.png" id="logo">
+    <img src="../../images/logo.png" id="logo">
 </a>
 
 
 <a href="user.php">
-    <img src="images/user1.png" id="usericon"
+    <img src="../../images/user1.png" id="usericon"
          style="width: 60px;
     height: 60px;
     position: absolute;
@@ -46,7 +47,7 @@ if (isset($_GET['id'])) {
 <div id="car_container">
 
     <div id="car_image">
-        <img src="images/marketplace/<?php echo $car['image']; ?>">
+        <img src="../../images/marketplace/<?php echo $car['image']; ?>">
     </div>
 
     <div id="car_details">

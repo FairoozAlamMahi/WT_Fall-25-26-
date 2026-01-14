@@ -1,5 +1,6 @@
 <?php
-include __DIR__ . "/DB/db.php";
+include "../../DB/db.php";
+
 
 $announcement = null;
 
@@ -19,16 +20,16 @@ if ($result && $result->num_rows > 0) {
 <html lang="en">
 <head>
     <title>Dashboard</title>
-    <link rel="stylesheet" href="CSS/dashboard.css">
+    <link rel="stylesheet" href="../View/css/dashboard.css">
 </head>
 <body>
 
-<img src="images/bg2.png" alt="" id="bg">
+<img src="../../images/bg2.png" alt="" id="bg">
 
 <div id="p1">
 
     <a href="dashboard.php">
-        <img src="images/logo.png" alt="logo" id="logo">
+        <img src="../../images/logo.png" alt="logo" id="logo">
     </a>
 
     <a href="catalogue.php">Catalogue</a>
@@ -76,7 +77,7 @@ if ($result && $result->num_rows > 0) {
 
 
 <a href="user.php">
-    <img src="images/user1.png" id="usericon"
+    <img src="../../images/user1.png" id="usericon"
          style="width: 60px; height: 60px; position: absolute; top: 10px; right: 70px;">
 </a>
 

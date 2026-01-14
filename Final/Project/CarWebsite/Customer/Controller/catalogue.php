@@ -1,5 +1,6 @@
 <?php
-include __DIR__ . "/DB/db.php";
+include "../../DB/db.php";
+
 
 
 $familyCars = [];
@@ -25,14 +26,14 @@ if ($sportsResult && $sportsResult->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <title>Catalogue</title>
-    <link rel="stylesheet" href="CSS/catalogue.css">
-    <script src="JS/catalogue.js" defer></script>
+    <link rel="stylesheet" href="../View/css/catalogue.css">
+    <script src="../View/js/catalogue.js" defer></script>
 </head>
 
 <body>
 
 <a href="dashboard.php">
-    <img src="images/logo.png" id="logo">
+    <img src="../../images/logo.png" id="logo">
 </a>
 
 <h1>Catalogue</h1>
@@ -43,7 +44,7 @@ if ($sportsResult && $sportsResult->num_rows > 0) {
 </div>
 
 <a href="user.php">
-    <img src="images/user1.png" id="usericon"
+    <img src="../../images/user1.png" id="usericon"
          style="width: 60px;
     height: 60px;
     position: absolute;
@@ -59,7 +60,7 @@ if (!empty($familyCars)) {
         echo "
         <a href='car_info.php?id={$car['id']}' style='text-decoration:none; color:inherit;'>
             <div class='family-box'>
-                <img src='images/cars/{$car['image']}'>
+                <img src='../../images/cars/{$car['image']}'>
                 <h3>{$car['brand']} {$car['model']}</h3>
                 <p>Price: {$car['price']}</p>
                 <p>{$car['horsepower']} HP • {$car['engine_capacity']} • {$car['transmission']}</p>
@@ -79,7 +80,7 @@ if (!empty($sportsCars)) {
         echo "
         <a href='car_info.php?id={$car['id']}' style='text-decoration:none; color:inherit;'>
             <div class='sports-box'>
-                <img src='images/cars/{$car['image']}'>
+                <img src='../../images/cars/{$car['image']}'>
                 <h2>{$car['brand']} {$car['model']}</h2>
                 <p>Price: {$car['price']}</p>
                 <p>{$car['horsepower']} HP • {$car['engine_capacity']} • {$car['transmission']}</p>

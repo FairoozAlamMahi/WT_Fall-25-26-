@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/landingpage.css">
+    <link rel="stylesheet" href="../View/css/landingpage.css">
 </head>
 <body>
     
 <a href="dashboard.php">
-    <img src="images/logo.png" id="logo">
+    <img src="../../images/logo.png" id="logo">
 </a>
 
 <a href="user.php">
-    <img src="images/user1.png" id="usericon"
+    <img src="../../images/user1.png" id="usericon"
          style="width: 60px;
     height: 60px;
     position: absolute;

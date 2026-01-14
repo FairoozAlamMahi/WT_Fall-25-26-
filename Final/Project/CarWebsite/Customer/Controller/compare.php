@@ -1,7 +1,8 @@
 <?php
-include "DB/db.php";
+include "../../DB/db.php";
 
-/* Fetch the cars for both dropdown */
+
+
 $cars = [];
 $result = $conn->query("SELECT * FROM cars");
 if ($result && $result->num_rows > 0) {
@@ -36,16 +37,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Compare</title>
-    <link rel="stylesheet" href="CSS/compare.css">
+    <link rel="stylesheet" href="../View/css/compare.css">
 </head>
 <body>
 
 <a href="dashboard.php">
-    <img src="images/logo.png" id="logo">
+    <img src="../../images/logo.png" id="logo">
 </a>
 
 <a href="user.php">
-    <img src="images/user1.png" id="usericon"
+    <img src="../../images/user1.png" id="usericon"
          style="width: 60px;
     height: 60px;
     position: absolute;
@@ -93,8 +94,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <tr>
         <td>Image</td>
-        <td><img src="images/cars/<?php echo $car1['image']; ?>" width="250"></td>
-        <td><img src="images/cars/<?php echo $car2['image']; ?>" width="250"></td>
+        <td><img src="../../images/cars/<?php echo $car1['image']; ?>" width="250"></td>
+        <td><img src="../../images/cars/<?php echo $car2['image']; ?>" width="250"></td>
     </tr>
 
     <tr>

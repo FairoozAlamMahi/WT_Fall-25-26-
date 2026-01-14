@@ -1,5 +1,6 @@
 <?php
-include "DB/db.php";
+include "../../DB/db.php";
+
 
 $listings = [];
 
@@ -50,19 +51,19 @@ if ($result && $result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <title>Marketplace</title>
-    <link rel="stylesheet" href="CSS/marketplace.css">
+    <link rel="stylesheet" href="../View/css/marketplace.css">
 </head>
 <body>
 
 <h1>Car Marketplace</h1>
 
 <a href="dashboard.php">
-    <img src="images/logo.png" id="logo">
+    <img src="../../images/logo.png" id="logo">
 </a>
 
 
 <a href="user.php">
-    <img src="images/user1.png" id="usericon"
+    <img src="../../images/user1.png" id="usericon"
          style="width: 60px;
     height: 60px;
     position: absolute;
@@ -167,7 +168,7 @@ if (!empty($listings)) {
         <a href="used_car.php?id='.$item['id'].'" style="text-decoration:none; color:white;">
             <div class="listing-card">
                 <div class="listing-img">
-                    <img src="images/marketplace/'.$item['image'].'" style="width:100%; height:100%; object-fit:cover;">
+                    <img src="../../images/marketplace/'.$item['image'].'" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <div class="listing-info">
                     <h3>'.$item['car_name'].'</h3>

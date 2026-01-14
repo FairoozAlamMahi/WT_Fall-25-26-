@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
-    <link rel="stylesheet" href="CSS/cart.css">
+    <link rel="stylesheet" href="../View/css/cart.css">
 </head>
 <body>
     
 
 <a href="dashboard.php">
-<img src="images/logo.png" id="logo">
+<img src="../../images/logo.png" id="logo">
 </a>
 
 
@@ -20,14 +20,14 @@
 <div id="cart">
 
     <div class="cart-box">
-        <img src="images/2020-toyota-corolla-sedan.jpg">
+        <img src="../../images/2020-toyota-corolla-sedan.jpg">
         <h3>Toyota Corolla</h3>
         <p>Price: 2,500,000</p>
         <p>139 HP • 1.8L • Automatic</p>
     </div>
 
     <div class="cart-box">
-        <img src="images/honda civic.jpg">
+        <img src="../../images/honda civic.jpg">
         <h3>Honda Civic</h3>
         <p>Price: 3,000,000</p>
         <p>158 HP • 2.0L • Automatic</p>
@@ -50,7 +50,7 @@
 
 
 <a href="user.php">
-    <img src="images/user1.png" id="usericon"
+    <img src="../../images/user1.png" id="usericon"
          style="width: 60px;
     height: 60px;
     position: absolute;

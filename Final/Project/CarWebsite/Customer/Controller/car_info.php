@@ -1,5 +1,6 @@
 <?php
-include __DIR__ . "/DB/db.php";
+include "../../DB/db.php";
+
 
 $car = null;
 
@@ -14,21 +15,24 @@ if (isset($_GET['id'])) {
 }
 ?>
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Car Details</title>
-    <link rel="stylesheet" href="CSS/car_info.css">
+    <link rel="stylesheet" href="../View/css/car_info.css">
 </head>
 <body>
 
 <a href="dashboard.php">
-    <img src="images/logo.png" id="logo">
+    <img src="../../images/logo.png" id="logo">
 </a>
 
 <a href="user.php">
-    <img src="images/user1.png" id="usericon"
+    <img src="../../images/user1.png" id="usericon"
          style="width: 60px;
     height: 60px;
     position: absolute;
@@ -43,8 +47,10 @@ if (isset($_GET['id'])) {
 
 <div id="car_container">
 
+
+
     <div id="car_image">
-        <img src="images/cars/<?php echo $car['image']; ?>">
+        <img src="../../images/cars/<?php echo $car['image']; ?>">
     </div>
 
     <div id="car_details">

@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>My Profile</title>
-    <link rel="stylesheet" href="CSS/user.css">
+    <link rel="stylesheet" href="../View/css/user.css">
 </head>
 <body>
 
 
 <a href="dashboard.php">
-    <img src="images/logo.png" id="logo">
+    <img src="../../images/logo.png" id="logo">
 </a>
 
 <h1>My Account</h1>

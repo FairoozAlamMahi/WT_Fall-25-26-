@@ -1,5 +1,6 @@
 <?php
-include "DB/db.php";
+include "../../DB/db.php";
+
 ?>
 
 
@@ -9,7 +10,7 @@ include "DB/db.php";
 <head>
     <meta charset="UTF-8">
     <title>Sell your car</title>
-    <link rel="stylesheet" href="CSS/postlisting.css">
+    <link rel="stylesheet" href="../View/css/postlisting.css">
 </head>
 <body>
 
@@ -17,7 +18,7 @@ include "DB/db.php";
 
 
 <a href="dashboard.php">
-    <img src="images/logo.png" id="logo">
+    <img src="../../images/logo.png" id="logo">
 </a>
 
 
@@ -247,7 +248,7 @@ if ($error != "") {
 
 
 <a href="user.php">
-    <img src="images/user1.png" id="usericon"
+    <img src="../../images/user1.png" id="usericon"
          style="width: 60px;
     height: 60px;
     position: absolute;
