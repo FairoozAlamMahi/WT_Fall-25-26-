@@ -3,30 +3,28 @@ ini_set('session.cookie_path', '/');
 session_start();
 include __DIR__ . "/../../DB/db.php";
 
+$not_logged_in = false;
+
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../View/login.php");
-    exit();
+    $not_logged_in = true;
+} else {
+    $user_id = $_SESSION['user_id'];
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['remove_item'])) {
+        $remove_id = intval($_POST['car_id']);
+        $conn->query("DELETE FROM cart_items WHERE user_id = $user_id AND car_id = $remove_id");
+    }
+
+    $sql = "
+    SELECT cart_items.car_id, cart_items.quantity, cars.brand, cars.model, cars.price, cars.image
+    FROM cart_items
+    JOIN cars ON cart_items.car_id = cars.id
+    WHERE cart_items.user_id = $user_id
+    ";
+
+    $result = $conn->query($sql);
+    $total = 0;
 }
-
-$user_id = $_SESSION['user_id'];
-
-// Remove item from cart
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['remove_item'])) {
-    $remove_id = intval($_POST['car_id']);
-    $conn->query("DELETE FROM cart_items WHERE user_id = $user_id AND car_id = $remove_id");
-}
-
-// Get cart items
-$sql = "
-SELECT cart_items.car_id, cart_items.quantity, cars.brand, cars.model, cars.price, cars.image
-FROM cart_items
-JOIN cars ON cart_items.car_id = cars.id
-WHERE cart_items.user_id = $user_id
-";
-
-$result = $conn->query($sql);
-
-$total = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,32 +43,45 @@ $total = 0;
 
 <div id="cart">
 
-<?php if ($result->num_rows > 0): ?>
+<?php if ($not_logged_in): ?>
 
-    <?php while ($row = $result->fetch_assoc()): 
-        $subtotal = $row['price'] * $row['quantity'];
-        $total += $subtotal;
-    ?>
-
-    <div class="cart-box">
-        <img src="../../images/cars/<?php echo $row['image']; ?>">
-        <h3><?php echo $row['brand'] . " " . $row['model']; ?></h3>
-        <p>Price: ৳ <?php echo $row['price']; ?></p>
-        <p>Quantity: <?php echo $row['quantity']; ?></p>
-        <p><strong>Subtotal:</strong> ৳ <?php echo $subtotal; ?></p>
-
-        <form method="post">
-            <input type="hidden" name="car_id" value="<?php echo $row['car_id']; ?>">
-            <button type="submit" name="remove_item" style="background:red;color:white;padding:8px 15px;border:none;border-radius:5px;cursor:pointer;">
-                Remove
-            </button>
-        </form>
-    </div>
-
-    <?php endwhile; ?>
+    <p style="text-align:center; font-size:20px; color:red; margin-top:50px;">
+        Please login first to view your cart.
+    </p>
 
 <?php else: ?>
-    <p style="text-align:center; margin-top:50px; font-size:18px;">Your cart is empty.</p>
+
+    <?php if ($result->num_rows > 0): ?>
+
+        <?php while ($row = $result->fetch_assoc()):
+            $subtotal = $row['price'] * $row['quantity'];
+            $total += $subtotal;
+        ?>
+
+        <div class="cart-box">
+            <img src="../../images/cars/<?php echo $row['image']; ?>">
+            <h3><?php echo $row['brand'] . " " . $row['model']; ?></h3>
+            <p>Price: ৳ <?php echo $row['price']; ?></p>
+            <p>Quantity: <?php echo $row['quantity']; ?></p>
+            <p><strong>Subtotal:</strong> ৳ <?php echo $subtotal; ?></p>
+
+            <form method="post">
+                <input type="hidden" name="car_id" value="<?php echo $row['car_id']; ?>">
+                <button type="submit" name="remove_item"
+                    style="background:red;color:white;padding:8px 15px;border:none;border-radius:5px;cursor:pointer;">
+                    Remove
+                </button>
+            </form>
+        </div>
+
+        <?php endwhile; ?>
+
+    <?php else: ?>
+        <p style="text-align:center; margin-top:50px; font-size:18px;">
+            Your cart is empty.
+        </p>
+    <?php endif; ?>
+
 <?php endif; ?>
 
 </div>
@@ -78,6 +89,7 @@ $total = 0;
 <hr>
 
 <center>
+<?php if (!$not_logged_in): ?>
     <p><strong>Total:</strong> ৳ <?php echo $total; ?></p>
 
     <?php if ($total > 0): ?>
@@ -85,6 +97,7 @@ $total = 0;
             <button id="checkout_btn">Proceed to Checkout</button>
         </a>
     <?php endif; ?>
+<?php endif; ?>
 </center>
 
 <a href="user.php">
