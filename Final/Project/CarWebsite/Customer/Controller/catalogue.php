@@ -1,5 +1,5 @@
 <?php
-include "../../DB/db.php";
+include __DIR__ . "/../../DB/db.php";
 
 
 

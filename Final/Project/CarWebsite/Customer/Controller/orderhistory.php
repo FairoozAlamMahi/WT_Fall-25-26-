@@ -1,5 +1,6 @@
 <?php
-include "../../DB/db.php";
+include __DIR__ . "/../../DB/db.php";
+
 
 // Fetch only shipped orders
 $sql = "SELECT * FROM orders WHERE status = 'shipped' ORDER BY created_at DESC";
