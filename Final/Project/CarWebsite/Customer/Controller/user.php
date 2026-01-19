@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
     session_destroy();
     session_regenerate_id(true);
 
-    header("Location: ../View/login.php");
+    header("Location: ../../Admin/View/login.php");
     exit();
 }
 ?>
